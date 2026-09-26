@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUNNY WIRE — ผู้นำนวัตกรรม Proxy Network สำหรับเกมเมอร์</title>
+  <title>SUNNY WIRE — นวัตกรรม Proxy Packet Manipulation สำหรับเกมเมอร์</title>
 
-  <!-- Google Fonts: Inter & Prompt -->
+  <!-- Google Fonts: Prompt & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,21 +26,21 @@
       </div>
 
       <nav class="nav-links">
-        <a href="#why-us">ทำไมต้องเรา</a>
-        <a href="#comparison">ข้อดีของระบบ Proxy</a>
-        <a href="#features">ฟังก์ชัน</a>
+        <a href="#architecture">สถาปัตยกรรมระบบ</a>
+        <a href="#why-proxy">ข้อดีของ Proxy</a>
+        <a href="#features">ฟังก์ชันเชิงลึก</a>
+        <a href="#comparison">ตารางเปรียบเทียบ</a>
+        <a href="#tutorial">วิธีติดตั้ง</a>
         <a href="#faq">คำถามพบบ่อย</a>
       </nav>
 
       <div class="nav-actions">
-        <!-- ปุ่มล็อกอิน Google -->
-        <button id="googleAuthBtn" class="btn-google" onclick="handleGoogleLogin()">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="google-icon">
-          <span id="googleBtnText">เข้าสู่ระบบด้วย Google</span>
-        </button>
-
-        <a href="menu.html" class="btn-primary">
-          <i class="fas fa-terminal"></i> แผงควบคุม VIP
+        <!-- ปุ่มดาวน์โหลด และ ติดต่อเรา เข้า Discord ทั้งคู่ -->
+        <a href="https://discord.gg/jT4QhEeXx" target="_blank" class="btn-outline">
+          <i class="fas fa-download"></i> ดาวน์โหลด
+        </a>
+        <a href="https://discord.gg/jT4QhEeXx" target="_blank" class="btn-primary">
+          <i class="fab fa-discord"></i> ติดต่อเรา
         </a>
       </div>
     </div>
@@ -50,7 +50,7 @@
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-badge">
-        <span class="badge-dot"></span> NEXT-GEN PACKET MODIFICATION 2026
+        <span class="badge-dot"></span> NEXT-GEN PACKET MODIFICATION PROTOCOL
       </div>
 
       <h1 class="hero-title">
@@ -60,111 +60,307 @@
 
       <p class="hero-desc">
         ฉีกกฎการดัดแปลงเกมแบบเดิม ไม่ต้องติดตั้งไฟล์ APK แปลกปลอม ไม่ต้องรูทเครื่องหรือเจลเบรก 
-        ระบบควบคุมผ่านท่อเน็ตเวิร์กภายนอกด้วย ProxyPin ปลอดภัยจากการตรวจจับ 100%
+        ระบบควบคุมผ่านท่อเน็ตเวิร์กภายนอกด้วย ProxyPin ปลอดภัยจากการตรวจจับโครงสร้างไฟล์ 100%
       </p>
+
+      <div class="hero-cta-group">
+        <a href="https://discord.gg/jT4QhEeXx" target="_blank" class="btn-hero-primary">
+          <i class="fab fa-discord"></i> เข้าสู่ Discord รับไฟล์ติดตั้ง
+        </a>
+        <a href="#architecture" class="btn-hero-secondary">
+          <i class="fas fa-book-open"></i> ศึกษาการทำงานเชิงลึก
+        </a>
+      </div>
 
       <div class="hero-stats">
         <div class="stat-card">
           <div class="stat-num">0%</div>
-          <div class="stat-label">แตะต้องไฟล์ใน RAM</div>
+          <div class="stat-label">แตะต้องหน่วยความจำ RAM</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">4ms</div>
-          <div class="stat-label">Ultra-Low Latency</div>
+          <div class="stat-label">Ultra-Low Latency Routing</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">iOS & Android</div>
           <div class="stat-label">รองรับทุกระบบปฏิบัติการ</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Cloud OTA Update Realtime</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Choose Us Section -->
-  <section class="section" id="why-us">
+  <!-- Section 1: Architecture (เจาะลึกการทำงานเชิงลึก) -->
+  <section class="section" id="architecture">
     <div class="section-container">
       <div class="section-header">
-        <h2 class="section-title">ทำไมต้องเลือกโปร Proxy ของเรา?</h2>
-        <p class="section-sub">เข้าใจความต่างของเทคโนโลยี Packet Routing ที่ค่ายชั้นนำระดับสากลเลือกใช้</p>
+        <div class="sub-badge">SYSTEM ARCHITECTURE</div>
+        <h2 class="section-title">สถาปัตยกรรมการทำงานเชิงลึก</h2>
+        <p class="section-sub">ทำความเข้าใจหลักการทำงานของเทคโนโลยี Proxy Interception ว่าทำไมถึงปลอดภัยกว่าโปรแกรมช่วยเล่นทั่วไป</p>
+      </div>
+
+      <div class="architecture-grid">
+        <div class="arch-card">
+          <div class="arch-step-num">01</div>
+          <div class="arch-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>Local Proxy Tunnel</h3>
+          <p>
+            ระบบสร้างอุโมงค์เครือข่าย Local Loopback (127.0.0.1) ภายในเครื่องผ่าน ProxyPin เพื่อทำหน้าที่เป็นเกตเวย์รับ-ส่งแพ็กเกจข้อมูลเกม 
+            โดยไม่ต้องแก้ไขไฟล์ระบบของตัวเครื่องหรือระบบปฏิบัติการ
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-step-num">02</div>
+          <div class="arch-icon"><i class="fas fa-filter"></i></div>
+          <h3>Real-time Packet Filter</h3>
+          <p>
+            เมื่อเกมส่งสัญญาณพิกัดศัตรูหรือตำแหน่งการยิง ตัวกรองจะดักจับแพ็กเกจโครงสร้าง UDP/TCP ก่อนที่ข้อมูลจะถูกส่งเข้าเกม 
+            ทำการปรับแก้เวกเตอร์ทิศทางกระสุนและการวางไอซ์วอลล์อย่างแม่นยำ
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-step-num">03</div>
+          <div class="arch-icon"><i class="fas fa-shield-virus"></i></div>
+          <h3>Zero Memory Footprint</h3>
+          <p>
+            ระบบป้องกันการโกงของเกม (Anti-Cheat) จะสแกนเฉพาะหน่วยความจำ RAM และความสมบูรณ์ของไฟล์ APK/IPA 
+            แต่สคริปต์ของเราทำงานอยู่บนเครือข่ายภายนอก ส่งผลให้ตัวเกมตรวจไม่พบร่องรอยการดัดแปลงใดๆ ทั้งสิ้น
+          </p>
+        </div>
+      </div>
+
+      <!-- กล่องไดอะแกรมจำลองการส่งข้อมูล -->
+      <div class="pipeline-box">
+        <div class="pipeline-title"><i class="fas fa-project-diagram"></i> แผนภาพเส้นทางการไหลของข้อมูล (Data Flow Pipeline)</div>
+        <div class="pipeline-flow">
+          <div class="pipe-node">
+            <span class="node-tag">Client</span>
+            <strong>Official Game App</strong>
+            <small>แอปแท้จาก App Store / Play Store</small>
+          </div>
+          <div class="pipe-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="pipe-node active-node">
+            <span class="node-tag">Proxy Layer</span>
+            <strong>SUNNY WIRE Engine</strong>
+            <small>ดัดแปลงเฉพาะโครงสร้าง Network Packet</small>
+          </div>
+          <div class="pipe-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="pipe-node">
+            <span class="node-tag">Remote Server</span>
+            <strong>Game Official Server</strong>
+            <small>เซิร์ฟเวอร์เกมรับข้อมูลตามปกติ</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Why Proxy? (ข้อดี 6 มิติ) -->
+  <section class="section bg-light" id="why-proxy">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="sub-badge">CORE ADVANTAGES</div>
+        <h2 class="section-title">ทำไมค่ายระดับโปรเพลเยอร์ถึงเลือก Proxy?</h2>
+        <p class="section-sub">เจาะลึก 6 เหตุผลหลักที่ทำให้ระบบ Proxy มีประสิทธิภาพเหนือกว่าโปรแกรมดัดแปลงไฟล์แบบเดิม</p>
       </div>
 
       <div class="grid-3">
         <div class="feature-box">
-          <div class="feature-icon">
-            <i class="fas fa-shield-halved"></i>
-          </div>
-          <h3>ระบบ Bypass นอกตัวเครื่อง</h3>
+          <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+          <h3>หลีกเลี่ยงการถูกแบนอย่างเด็ดขาด</h3>
           <p>
-            ต่างจากโปรทั่วไปที่ต้องฉีดสคริปต์ลงหน่วยความจำของเกม ระบบ Proxy ของ SUNNY WIRE ทำงานที่ระดับเครือข่ายภายนอก 
-            ตัวเกมจึงไม่สามารถสแกนเจอร่องรอยการดัดแปลงไฟล์
+            ระบบตรวจจับของเกมในปัจจุบันจะตรวจสอบ Hash File และสแกน Memory Dump เพื่อหา Hook Function 
+            แต่เทคโนโลยี Proxy ทำงานนอกกระบวนการตัวเกม (Out-of-Process) ส่งผลให้ตัวป้องกันเกมตรวจจับไม่ได้
           </p>
         </div>
 
         <div class="feature-box">
-          <div class="feature-icon">
-            <i class="fas fa-microchip"></i>
-          </div>
-          <h3>เครื่องไม่ร้อน เฟรมเรตไม่ดรอป</h3>
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3>เฟรมเรตลื่นไหล เครื่องไม่ร้อน</h3>
           <p>
-            ไม่กินทรัพยากร CPU และการ์ดจอเหมือนโปรที่มีเมนูโอเวอร์เลย์หนักๆ เล่นได้ลื่นไหลเต็ม 120Hz พร้อมคำนวณทิศทางกระสุนอย่างแม่นยำ
+            โปรแกรมทั่วไปที่มีเมนูวาดทับหน้าจอ (ESP Overlay) จะดึงพลังงาน GPU ทำให้เกมกระตุกและเครื่องร้อนจัด 
+            ระบบ Proxy ประมวลผลเฉพาะแพ็กเกจเบื้องหลัง เฟรมเรตจึงนิ่งระดับ 120 FPS ไม่สูบแบตเตอรี่
           </p>
         </div>
 
         <div class="feature-box">
-          <div class="feature-icon">
-            <i class="fas fa-arrows-rotate"></i>
-          </div>
-          <h3>อัปเดตแบบ Cloud ทันที</h3>
+          <div class="feature-icon"><i class="fas fa-cloud-arrow-down"></i></div>
+          <h3>อัปเดตแบบไร้รอยต่อ (Cloud OTA)</h3>
           <p>
-            เมื่อเกมมีการแพตช์ ทีมงานอัปเดตสคริปต์ที่เซิร์ฟเวอร์กลางทันที คุณไม่ต้องโหลดไฟล์ติดตั้งใหม่ แค่กดเชื่อมต่อก็ใช้งานเวอร์ชันล่าสุดได้เลย
+            เมื่อเกมอัปเดตแพตช์ ทีมงานจะปรับแก้โปรโตคอลที่เซิร์ฟเวอร์กลางทันที คุณสามารถเล่นต่อได้ต่อเนื่อง 
+            ไม่ต้องเสียเวลาลบเกมลงใหม่ หรือรอโหลดไฟล์ Mod APK/IPA ดัดแปลงตัวใหม่
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h3>ความปลอดภัยระดับสากล ไม่เสี่ยงมัลแวร์</h3>
+          <p>
+            ไม่ต้องดาวน์โหลดไฟล์ที่ไม่น่าเชื่อถือมาติดตั้งในเครื่อง ตัวเกมที่เล่นคือตัวเกมแท้ที่โหลดจาก Store 
+            ป้องกันปัญหาโดนขโมยรหัสผ่านหรือข้อมูลส่วนตัวจากการติดตั้งไฟล์ดัดแปลง
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fas fa-mobile-screen"></i></div>
+          <h3>รองรับทั้ง iOS และ Android 100%</h3>
+          <p>
+            หมดยุคที่ผู้ใช้ iPhone ต้องเจลเบรกเพื่อใช้งานโปรแกรมช่วยเล่น ระบบ Proxy สามารถทำงานบน iOS 15.0 - 27.2 
+            และ Android 9.0 ขึ้นไปทุกรุ่นได้อย่างสมบูรณ์แบบโดยไม่ต้องดัดแปลงระบบเครื่อง
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+          <h3>โครงข่ายเซิร์ฟเวอร์ความเร็วสูง ปิงต่ำ 4ms</h3>
+          <p>
+            เซิร์ฟเวอร์เชื่อมต่อด้วยโครงข่ายใยแก้วนำแสงในประเทศไทย ปิงต่ำเฉลี่ยเพียง 4ms ตอบสนองฉับไว 
+            หมดปัญหาเน็ตแล็ก กระสุนดีเลย์ หรือหลุดจากการเชื่อมต่อกลางเกม
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Comparison Table (เปรียบเทียบค่ายเรา vs โปรทั่วไป) -->
+  <!-- Section 3: Deep Dive Features (เจาะลึกฟังก์ชัน) -->
+  <section class="section" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="sub-badge">FEATURES SPECIFICATION</div>
+        <h2 class="section-title">เจาะลึกฟังก์ชันระดับพรีเมียม</h2>
+        <p class="section-sub">เทคโนโลยีคำนวณเวกเตอร์วิถีกระสุนและการดักจับตำแหน่งที่แม่นยำที่สุด</p>
+      </div>
+
+      <div class="detailed-feature-list">
+        
+        <!-- Feature 1 -->
+        <div class="feature-detail-row">
+          <div class="feature-detail-info">
+            <span class="feature-tag">COMBAT PROTOCOL</span>
+            <h3>Aimbot Curve 85% & Legit Assist</h3>
+            <p>
+              ระบบไม่ได้ใช้การล็อกเป้าแบบกระตุกฉับพลันที่ผิดธรรมชาติ แต่ใช้อัลกอริทึม Bezier Curve 
+              เพื่อคำนวณมุมองศาการหันหน้าและเหนี่ยวไกจำลองการเล่นของผู้เล่นระดับโปรเพลเยอร์ 
+              ดูดเข้าสู่ช่วงศีรษะและลำตัวระดับ 85% เพื่อความแม่นยำสูงและมีความเป็นธรรมชาติสูงสุด
+            </p>
+            <ul class="feature-points">
+              <li><i class="fas fa-check-circle"></i> ปรับแต่งรัศมี FOV ได้ตั้งแต่ 30° ถึง 180° ตามระยะสายตา</li>
+              <li><i class="fas fa-check-circle"></i> เลือกระดับความเนียน (Smoothness) ได้ตั้งแต่ 1 ถึง 10</li>
+              <li><i class="fas fa-check-circle"></i> คำนวณชดเชยการเคลื่อนที่ของศัตรูแบบอัตโนมัติ (Bullet Prediction)</li>
+            </ul>
+          </div>
+          <div class="feature-detail-box">
+            <div class="terminal-mockup">
+              <div class="term-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">packet_aim_engine.cpp</span>
+              </div>
+              <pre class="term-code">
+// Realtime Trajectory Math
+TargetVector target = GetNearestEnemy(fov_angle: 85);
+Vector3 smoothed = SmoothTrajectory(current, target, smooth_factor: 5);
+OverrideClientPacket(EulerAngles(smoothed.x, smoothed.y));
+// Result: 100% Clean Hit Registration</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-detail-row reverse">
+          <div class="feature-detail-info">
+            <span class="feature-tag">DEFENSE PROTOCOL</span>
+            <h3>Fast Auto Icewall Inverted</h3>
+            <p>
+              การวางไอซ์วอลล์ป้องกันตัวผ่านคำสั่งลัดจากแพ็กเกจเครือข่าย เมื่อระบบตรวจจับความเสียหายจากการถูกยิง 
+              หรือเมื่อผู้เล่นกดคำสั่งวาง สคริปต์จะเร่งแพ็กเกจเพื่อวางไอซ์วอลล์แบบรอบทิศทางในทันที 
+              ลดระยะเวลาหน่วงของแอนิเมชันในเกมลงได้มากกว่า 40%
+            </p>
+            <ul class="feature-points">
+              <li><i class="fas fa-check-circle"></i> วางไอซ์วอลล์กลับด้านเพื่อการเคลื่อนที่และยิงสวนกลับได้ทันที</li>
+              <li><i class="fas fa-check-circle"></i> ป้องกันการโดนรุมยิงในมุมอับสายตาได้อย่างมีประสิทธิภาพ</li>
+            </ul>
+          </div>
+          <div class="feature-detail-box">
+            <div class="terminal-mockup">
+              <div class="term-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">icewall_accelerator.json</span>
+              </div>
+              <pre class="term-code">
+{
+  "module": "ICEWALL_INVERTED",
+  "deploy_speed": "0.04ms",
+  "placement_offset": "reverse_180_deg",
+  "packet_bypass_status": "AUTHENTICATED"
+}</pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Detailed Comparison Table (ตารางเปรียบเทียบเชิงเทคนิค) -->
   <section class="section bg-light" id="comparison">
     <div class="section-container">
       <div class="section-header">
-        <h2 class="section-title">ความแตกต่างที่คุณสัมผัสได้จริง</h2>
-        <p class="section-sub">ตารางเปรียบเทียบระหว่างโปรแกรมดัดแปลงไฟล์ทั่วไป กับระบบ Proxy ของค่าย SUNNY WIRE</p>
+        <div class="sub-badge">SYSTEM COMPARISON</div>
+        <h2 class="section-title">ตารางเปรียบเทียบเชิงเทคนิคอย่างละเอียด</h2>
+        <p class="section-sub">ตรวจสอบความแตกต่างระหว่างแต่ละเทคโนโลยี เพื่อเลือกสิ่งที่ดีที่สุดสำหรับอุปกรณ์และบัญชีของคุณ</p>
       </div>
 
       <div class="table-wrap">
         <table class="comparison-table">
           <thead>
             <tr>
-              <th>ฟังก์ชันและมาตรฐานความปลอดภัย</th>
-              <th class="table-danger">โปร APK / Injector ทั่วไป</th>
-              <th class="table-highlight">SUNNY WIRE (Proxy)</th>
+              <th>หัวข้อการเปรียบเทียบ</th>
+              <th class="table-bad">Mod APK / IPA เถื่อน</th>
+              <th class="table-bad">Memory Injector / GameGuardian</th>
+              <th class="table-best">SUNNY WIRE (Proxy Network)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>ความเสี่ยงต่อการโดนแบน</strong></td>
-              <td class="table-danger"><i class="fas fa-times-circle"></i> สูงมาก (เกมตรวจจับไฟล์แปลกปลอม)</td>
-              <td class="table-highlight"><i class="fas fa-check-circle"></i> แทบไม่มี (ส่งข้อมูลผ่านท่อ Proxy)</td>
+              <td><strong>ความเสี่ยงต่อการถูกแบน</strong></td>
+              <td class="table-bad"><i class="fas fa-times-circle"></i> 90–100% (แบนทันทีที่มีการตรวจจับไฟล์)</td>
+              <td class="table-bad"><i class="fas fa-times-circle"></i> 70–80% (โดนแบนเมื่อสแกนพบ Memory Hook)</td>
+              <td class="table-best"><i class="fas fa-check-circle"></i> ปลอดภัยสูงสุด (ตรวจไม่พบในเครื่อง)</td>
             </tr>
             <tr>
-              <td><strong>การปรับแต่งตัวเครื่อง</strong></td>
-              <td class="table-danger"><i class="fas fa-times-circle"></i> ต้องรูทเครื่อง หรือเสี่ยงแอปเถื่อน</td>
-              <td class="table-highlight"><i class="fas fa-check-circle"></i> เครื่องแท้ 100% (No Root / No JB)</td>
+              <td><strong>การดัดแปลงตัวเครื่อง</strong></td>
+              <td class="table-bad">ต้องลงแอปที่ไม่ผ่านการรับรอง</td>
+              <td class="table-bad">ต้อง Root หรือ Jailbreak อุปกรณ์</td>
+              <td class="table-best"><i class="fas fa-check-circle"></i> ไม่ต้องดัดแปลงเครื่อง (เครื่องแท้ 100%)</td>
             </tr>
             <tr>
-              <td><strong>ผลกระทบต่อเฟรมเรตและแบตเตอรี่</strong></td>
-              <td class="table-danger"><i class="fas fa-times-circle"></i> เครื่องร้อน กระตุก แบตหมดไว</td>
-              <td class="table-highlight"><i class="fas fa-check-circle"></i> ลื่นไหลปกติ ไม่กินพลังงานเครื่อง</td>
+              <td><strong>ผลกระทบต่อประสิทธิภาพเกม</strong></td>
+              <td>กระตุก เครื่องร้อน เฟรมเรตตก</td>
+              <td>แอปเด้งบ่อย แรมเต็ม เครื่องค้าง</td>
+              <td class="table-best"><i class="fas fa-check-circle"></i> ลื่นไหลเต็มประสิทธิภาพ 120Hz</td>
             </tr>
             <tr>
-              <td><strong>การเปิดใช้งาน</strong></td>
-              <td class="table-danger"><i class="fas fa-times-circle"></i> ต้องลงทับทุกครั้งที่เกมอัปเดต</td>
-              <td class="table-highlight"><i class="fas fa-check-circle"></i> เปิดผ่าน ProxyPin และเว็บเบราว์เซอร์</td>
+              <td><strong>ขั้นตอนเมื่อเกมมีอัปเดตใหม่</strong></td>
+              <td class="table-bad">ต้องลบเกมทิ้ง รอโหลดตัวดัดแปลงใหม่</td>
+              <td class="table-bad">ต้องค้นหา Pointer Address และ Offset ใหม่</td>
+              <td class="table-best"><i class="fas fa-check-circle"></i> อัปเดตฝั่งเซิร์ฟเวอร์ เล่นต่อได้ทันที</td>
             </tr>
             <tr>
-              <td><strong>การสนับสนุนระบบปฏิบัติการ</strong></td>
-              <td>ส่วนใหญ่รองรับเฉพาะ Android บางรุ่น</td>
-              <td class="table-highlight">รองรับทั้ง iOS 15–27.2 และ Android 9+</td>
+              <td><strong>ความปลอดภัยของข้อมูลส่วนตัว</strong></td>
+              <td class="table-bad">เสี่ยงต่อการโดนฝังโทรจัน/มัลแวร์</td>
+              <td class="table-bad">สิทธิ์ Root เข้าถึงข้อมูลในเครื่องได้ทั้งหมด</td>
+              <td class="table-best"><i class="fas fa-check-circle"></i> ใช้ตัวเกมทางการ ปลอดภัย 100%</td>
+            </tr>
+            <tr>
+              <td><strong>การรองรับระบบปฏิบัติการ</strong></td>
+              <td>ส่วนใหญ่เฉพาะ Android เก่าๆ</td>
+              <td>รองรับเฉพาะเครื่องที่ผ่านการดัดแปลง</td>
+              <td class="table-best"><i class="fas fa-check-circle"></i> รองรับทั้ง iOS และ Android ทุกรุ่น</td>
             </tr>
           </tbody>
         </table>
@@ -172,83 +368,174 @@
     </div>
   </section>
 
-  <!-- Features Grid -->
-  <section class="section" id="features">
+  <!-- Section 5: Tutorial (ขั้นตอนการติดตั้ง 4 สเต็ป) -->
+  <section class="section" id="tutorial">
     <div class="section-container">
       <div class="section-header">
-        <h2 class="section-title">ฟังก์ชันพรีเมียมที่พร้อมใช้งาน</h2>
-        <p class="section-sub">ควบคุมและปรับแต่งได้อิสระจากแผงหน้าจอแดชบอร์ด</p>
+        <div class="sub-badge">INSTALLATION GUIDE</div>
+        <h2 class="section-title">ขั้นตอนการเริ่มต้นใช้งาน 4 ขั้นตอน</h2>
+        <p class="section-sub">เริ่มต้นใช้งานง่ายๆ ภายในเวลาไม่เกิน 3 นาที ไม่ต้องมีความรู้เรื่องโปรแกรมก็ทำได้</p>
       </div>
 
-      <div class="grid-4">
-        <div class="feature-card-clean">
-          <div class="feature-badge">AIMING</div>
-          <h4>Aimbot Curve 85%</h4>
-          <p>เพิ่มแรงดูดวิถีกระสุนเข้าสู่เป้าหมายอย่างแม่นยำ ปรับแต่ง FOV และความหน่วงได้ละเอียด</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>ดาวน์โหลดแอป ProxyPin</h4>
+          <p>ดาวน์โหลดแอป ProxyPin จาก App Store สำหรับ iOS หรือ Google Play สำหรับ Android</p>
         </div>
 
-        <div class="feature-card-clean">
-          <div class="feature-badge">DEFENSE</div>
-          <h4>Auto Icewall Inverted</h4>
-          <p>ระบบสร้างไอซ์วอลล์ป้องกันตัวแบบอัตโนมัติรอบตัวในเสี้ยววินาทีเมื่อถูกยิง</p>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>เข้าสู่ Discord ของเรา</h4>
+          <p>กดปุ่มดาวน์โหลดหรือติดต่อเราเพื่อเข้าร่วม Discord Server และรับลิงก์โปรไฟล์ Config ล่าสุด</p>
         </div>
 
-        <div class="feature-card-clean">
-          <div class="feature-badge">RADAR</div>
-          <h4>Realtime Packet Trajectory</h4>
-          <p>จับพิกัดศัตรูผ่านแพ็กเกจสัญญาณเครือข่าย ช่วยให้ตัดสินใจได้เร็วกว่าคู่แข่ง</p>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>ติดตั้งโปรไฟล์เครือข่าย</h4>
+          <p>กด Install Config บนหน้าเว็บเพื่อนำเข้าโปรไฟล์ไปยังแอป ProxyPin และกดยอมรับการเชื่อมต่อ VPN</p>
         </div>
 
-        <div class="feature-card-clean">
-          <div class="feature-badge">NETWORK</div>
-          <h4>Bypass Security Gate</h4>
-          <p>เชื่อมต่อไปยัง Proxy Server ปิงต่ำในไทย ไม่ทำให้ความเร็วเน็ตสะดุด</p>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h4>เข้าเกมและสนุกได้ทันที</h4>
+          <p>เปิดตัวเกมแท้ในเครื่อง ระบบ Proxy จะเริ่มทำงานกรองแพ็กเกจและช่วยเหลือการเล่นให้อัตโนมัติ</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Google Login Modal (Popup จำลอง) -->
-  <div class="modal-overlay" id="googleModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="google-modal-logo">
-        <h3>เข้าสู่ระบบด้วยบัญชี Google</h3>
-        <p>เลือกบัญชีของคุณเพื่อเชื่อมต่อกับระบบ SUNNY WIRE</p>
+  <!-- Section 6: In-Depth FAQ (คำถามที่พบบ่อย) -->
+  <section class="section bg-light" id="faq">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="sub-badge">FREQUENTLY ASKED QUESTIONS</div>
+        <h2 class="section-title">คำถามที่พบบ่อย (FAQ)</h2>
+        <p class="section-sub">รวบรวมทุกข้อสงสัยเกี่ยวกับระบบ Proxy และความปลอดภัยในการใช้งาน</p>
       </div>
 
-      <div class="account-list">
-        <div class="account-item" onclick="selectMockAccount('sunny.gamer@gmail.com', 'Sunny User')">
-          <div class="account-avatar">S</div>
-          <div class="account-meta">
-            <span class="account-name">Sunny User</span>
-            <span class="account-email">sunny.gamer@gmail.com</span>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>1. ระบบ Proxy ปลอดภัยจากการแบนจริงหรือไม่?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              ปลอดภัยกว่าโปรแกรมช่วยเล่นแบบดั้งเดิมอย่างมาก เนื่องจากระบบ Anti-Cheat ของเกมจะตรวจสอบเฉพาะตัวเกมในเครื่อง (File Integrity) 
+              และการเข้าถึงหน่วยความจำของแอปเกม (Memory Hooking) แต่ระบบของ SUNNY WIRE ทำงานผ่านท่อเครือข่าย Local Proxy ภายนอก 
+              ตัวเกมจึงไม่มีทางสแกนพบไฟล์แปลกปลอมหรือสคริปต์ฉีดเข้า RAM ได้เลย
+            </p>
           </div>
         </div>
-        <div class="account-item" onclick="selectMockAccount('vip.player2026@gmail.com', 'VIP Customer')">
-          <div class="account-avatar" style="background:#2563eb;">V</div>
-          <div class="account-meta">
-            <span class="account-name">VIP Customer</span>
-            <span class="account-email">vip.player2026@gmail.com</span>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>2. ต้องรูท (Root) เครื่อง Android หรือเจลเบรก (Jailbreak) iPhone หรือไม่?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              ไม่ต้องทำอย่างแน่นอน ทั้งระบบ iOS และ Android สามารถใช้งานผ่านแอปพลิเคชันทางการอย่าง ProxyPin ได้โดยตรง 
+              ตัวเครื่องยังคงรักษาสภาพความปลอดภัยของศูนย์บริการ 100% สามารถอัปเดตระบบปฏิบัติการได้ตามปกติ
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>3. สามารถใช้งานกับเน็ตมือถือ 4G/5G หรือ Wi-Fi ได้หรือไม่?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              รองรับทั้งการเชื่อมต่อผ่าน Wi-Fi และอินเทอร์เน็ตมือถือซิม 4G / 5G ทุกค่ายในไทย ตัวแอปจะสร้างโปรไฟล์ VPN ภายในเครื่อง (Local Loopback) 
+              และเชื่อมต่อไปยังเซิร์ฟเวอร์ปิงต่ำของเราโดยไม่ลดทอนความเร็วอินเทอร์เน็ตของคุณ
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>4. ถ้าเกมมีอัปเดตแพตช์ใหญ่ ต้องทำอย่างไร?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              คุณไม่ต้องทำอะไรเลย และไม่ต้องโหลดไฟล์ใหม่ ทีมงานของเราจะทำการวิเคราะห์แพ็กเกจใหม่และอัปเดตระบบ Cloud Script 
+              ที่เซิร์ฟเวอร์ส่วนกลางทันที เมื่อคุณเปิดใช้งาน Proxy ข้อมูลแพตช์ใหม่จะถูกดึงมาใช้งานโดยอัตโนมัติ
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>5. ทำไมต้องใช้แอปพลิเคชัน ProxyPin?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              ProxyPin เป็นแอปพลิเคชัน Open-Source ระดับมืออาชีพที่ได้รับความไว้วางใจในการดักจับและส่งผ่านแพ็กเกจเครือข่าย 
+              มีความเสถียรสูง ไม่สูบพลังงานเครื่อง และผ่านการตรวจสอบความปลอดภัยจาก App Store และ Google Play Store เรียบร้อยแล้ว
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>6. สามารถใช้เล่นกับรหัสหลัก (Main Account) ได้ไหม?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>
+              แม้ระบบ Proxy จะมีความปลอดภัยสูงมาก แต่ในแวดวงการแข่งขันระดับสูง เราแนะนำให้ผู้เล่นตั้งค่า Aimbot และฟังก์ชันต่างๆ 
+              ให้อยู่ในระดับที่แนบเนียน (Legit Settings) เพื่อป้องกันการถูกผู้เล่นคนอื่นรายงาน (Player Report) จากการเล่นที่ผิดสังเกต
+            </p>
           </div>
         </div>
       </div>
-
-      <button class="btn-cancel" onclick="closeGoogleModal()">ยกเลิก</button>
     </div>
-  </div>
+  </section>
 
-  <!-- Toast Message -->
-  <div class="toast" id="toastMsg"></div>
+  <!-- Section 7: Community Call to Action (หมวดติดต่อและดาวน์โหลด) -->
+  <section class="section cta-section">
+    <div class="cta-box">
+      <h2>พร้อมที่จะสัมผัสประสบการณ์การเล่นระดับ VIP แล้วหรือยัง?</h2>
+      <p>
+        เข้าร่วมชุมชน SUNNY WIRE ใน Discord เพื่อรับสิทธิ์ดาวน์โหลดไฟล์ Config อัปเดตล่าสุด 
+        ปรึกษาวิธีการติดตั้ง หรือพูดคุยกับทีมงานซัพพอร์ตได้ตลอด 24 ชั่วโมง
+      </p>
+      <div class="cta-actions">
+        <a href="https://discord.gg/jT4QhEeXx" target="_blank" class="btn-discord-large">
+          <i class="fab fa-discord"></i> เข้าร่วม Discord Server ของเรา
+        </a>
+      </div>
+      <div class="cta-badges">
+        <span><i class="fas fa-check-shield"></i> ทีมงานดูแลตลอด 24 ชม.</span>
+        <span><i class="fas fa-bolt"></i> รับไฟล์ Config ได้ทันที</span>
+        <span><i class="fas fa-users"></i> สังคมผู้เล่นคุณภาพ</span>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-brand">
-        <img src="https://i.postimg.cc/SNrTx4V6/Picsart-26-09-05-09-29-37-550.png" alt="Logo" class="footer-logo">
-        <span>SUNNY WIRE © 2026</span>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="https://i.postimg.cc/SNrTx4V6/Picsart-26-09-05-09-29-37-550.png" alt="SUNNY WIRE Logo" class="footer-logo">
+          <span>SUNNY WIRE NETWORK</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://discord.gg/jT4QhEeXx" target="_blank">ดาวน์โหลดโปรไฟล์</a>
+          <a href="https://discord.gg/jT4QhEeXx" target="_blank">ติดต่อทีมงาน</a>
+          <a href="#faq">คำถามพบบ่อย</a>
+        </div>
       </div>
-      <p class="footer-desc">Professional Gaming Network Proxy Solution. All Rights Reserved.</p>
+      <div class="footer-bottom">
+        <p>SUNNY WIRE © 2026. The Ultimate Gaming Proxy Network Solution. All rights reserved.</p>
+        <p class="footer-disclaimer">คำเตือน: โปรแกรมนี้พัฒนาขึ้นเพื่อการวิเคราะห์โครงสร้างเน็ตเวิร์กและการศึกษาเท่านั้น</p>
+      </div>
     </div>
   </footer>
 
